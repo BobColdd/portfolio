@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Denis Kirui — Data Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0f0e0d;
+    --ink-mid: #4a4845;
+    --ink-soft: #9a9590;
+    --paper: #f7f4ef;
+    --paper-warm: #ede9e1;
+    --accent: #1a3a2e;
+    --accent-light: #2e6b50;
+    --accent-pale: #d4e8dc;
+    --rule: #c8c2b8;
+    --mono: 'DM Mono', monospace;
+    --serif: 'DM Serif Display', serif;
+    --sans: 'Instrument Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 3rem;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--ink-mid);
+    text-decoration: none;
+    text-transform: lowercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 72px;
+  }
+  .hero-left {
+    padding: 6rem 3rem 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid var(--rule);
+  }
+  .hero-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--accent-light);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 5vw, 5rem);
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent-light);
+  }
+  .hero-desc {
+    font-size: 17px;
+    color: var(--ink-mid);
+    line-height: 1.7;
+    max-width: 420px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--paper);
+    padding: 0.75rem 1.75rem;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    border: none; cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--accent-light); }
+  .btn-outline {
+    background: transparent;
+    color: var(--accent);
+    padding: 0.75rem 1.75rem;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    border: 1px solid var(--accent);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { background: var(--accent); color: var(--paper); }
+
+  .hero-right {
+    padding: 6rem 3rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+  }
+  .stat-row {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .stat-row:first-child { border-top: 1px solid var(--rule); }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    color: var(--ink);
+    min-width: 80px;
+  }
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 5rem 3rem; }
+  .section-header {
+    display: flex; align-items: center; gap: 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    color: var(--ink);
+  }
+  .section-rule { flex: 1; height: 1px; background: var(--rule); }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--paper); }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--rule);
+  }
+  .project-card {
+    padding: 2.5rem;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+    overflow: hidden;
+    transition: background 0.25s;
+  }
+  .project-card:hover { background: var(--paper-warm); }
+  .project-card:nth-child(even) { border-right: none; }
+  .project-card:nth-child(n+3) { border-bottom: none; }
+  .project-featured {
+    grid-column: 1 / -1;
+    border-right: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    padding: 2.5rem;
+    background: var(--accent);
+    color: var(--paper);
+  }
+  .project-featured:hover { background: var(--accent-light); }
+  .proj-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 1rem;
+  }
+  .project-featured .proj-tag { color: var(--accent-pale); }
+  .proj-title {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+  .project-featured .proj-title { color: var(--paper); font-size: 1.8rem; }
+  .proj-desc {
+    font-size: 14px;
+    color: var(--ink-mid);
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+  }
+  .project-featured .proj-desc { color: rgba(247,244,239,0.8); }
+  .proj-stack {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+  }
+  .tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    padding: 3px 9px;
+    background: var(--paper-warm);
+    color: var(--ink-mid);
+    border: 1px solid var(--rule);
+  }
+  .project-featured .tag {
+    background: rgba(255,255,255,0.12);
+    color: var(--paper);
+    border-color: rgba(255,255,255,0.2);
+  }
+  .proj-meta {
+    margin-top: 1.5rem;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-soft);
+  }
+  .project-featured .proj-meta { color: var(--accent-pale); }
+
+  .proj-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+  .proj-diagram {
+    width: 100%;
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 1.25rem;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent-pale);
+    line-height: 1.8;
+  }
+
+  /* ── ABOUT / SKILLS ── */
+  #about {
+    background: var(--paper-warm);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+  }
+  .about-text {
+    font-size: 16px;
+    color: var(--ink-mid);
+    line-height: 1.8;
+  }
+  .about-text p + p { margin-top: 1rem; }
+  .about-text strong { color: var(--ink); font-weight: 600; }
+  .skills-col h3 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.5rem;
+  }
+  .skill-list { list-style: none; }
+  .skill-list li {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-mid);
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .skill-list li::before {
+    content: '▸';
+    color: var(--accent-light);
+    font-size: 9px;
+  }
+  .skills-group + .skills-group { margin-top: 2rem; }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--paper); }
+  .exp-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .exp-item:last-child { border-bottom: none; }
+  .exp-date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: 0.06em;
+    padding-top: 4px;
+  }
+  .exp-role {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+  .exp-org {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent-light);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.75rem;
+  }
+  .exp-body {
+    font-size: 14px;
+    color: var(--ink-mid);
+    line-height: 1.7;
+  }
+  .exp-body ul { padding-left: 1.2rem; }
+  .exp-body li { margin-bottom: 0.35rem; }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--accent);
+    color: var(--paper);
+    text-align: center;
+    padding: 6rem 3rem;
+  }
+  #contact .section-title { color: var(--paper); }
+  #contact .section-rule { background: rgba(255,255,255,0.2); }
+  #contact .section-num { color: rgba(255,255,255,0.4); }
+  .contact-sub {
+    font-size: 17px;
+    color: rgba(247,244,239,0.75);
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+    margin-left: auto; margin-right: auto;
+  }
+  .contact-email {
+    font-family: var(--serif);
+    font-size: 2rem;
+    color: var(--paper);
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent-pale);
+    transition: color 0.2s;
+  }
+  .contact-email:hover { color: var(--accent-pale); }
+  .contact-links {
+    margin-top: 2.5rem;
+    display: flex; justify-content: center; gap: 2rem;
+  }
+  .contact-links a {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: rgba(247,244,239,0.6);
+    text-decoration: none;
+    text-transform: lowercase;
+    transition: color 0.2s;
+  }
+  .contact-links a:hover { color: var(--paper); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: var(--ink-soft);
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer span {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 5rem 1.5rem 2rem; border-right: none; border-bottom: 1px solid var(--rule); }
+    .hero-right { padding: 2rem 1.5rem; }
+    section { padding: 3.5rem 1.5rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-featured { grid-template-columns: 1fr; }
+    .project-card:nth-child(even) { border-right: none; }
+    .project-card { border-right: none; }
+    .about-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">dk / portfolio</div>
+  <ul class="nav-links">
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#about">about</a></li>
+    <li><a href="#experience">experience</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-left fade-in">
+    <p class="hero-tag">BSc Information Technology · TUM '25</p>
+    <h1 class="hero-name">Denis<br><em>Kirui</em></h1>
+    <p class="hero-desc">
+      Data engineer and systems builder based in Nairobi. I build pipelines, tools, and infrastructure that turn raw data into decisions — from classroom hotspot servers to live odds aggregation engines.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="mailto:kiruirop15@gmail.com" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right fade-in">
+    <div class="stat-row">
+      <span class="stat-num">3+</span>
+      <span class="stat-label">Production systems deployed</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-num">40+</span>
+      <span class="stat-label">Bookmakers integrated (EdgeScanner)</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-num">2</span>
+      <span class="stat-label">Active technical brands / publications</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-num">2025</span>
+      <span class="stat-label">Graduated — Technical University of Mombasa</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header fade-in">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Selected Projects</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- FEATURED -->
+    <div class="project-card project-featured fade-in">
+      <div>
+        <p class="proj-tag">Data Engineering · Live System</p>
+        <h3 class="proj-title">EdgeScanner Live</h3>
+        <p class="proj-desc">
+          A real-time value-bet aggregation platform monitoring odds across 40+ bookmakers simultaneously. Built a custom data pipeline that ingests, normalises, and surfaces arbitrage and expected-value opportunities across basketball and football markets. The system processes live odds feeds, applies probability modelling, and delivers ranked bet suggestions through a clean dashboard interface.
+        </p>
+        <div class="proj-stack">
+          <span class="tag">Python</span>
+          <span class="tag">React</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">Data Pipeline</span>
+          <span class="tag">Odds Aggregation</span>
+          <span class="tag">Probability Modelling</span>
+        </div>
+        <p class="proj-meta">— 40+ bookmakers · Multi-sport · Live odds processing</p>
+      </div>
+      <div class="proj-right">
+        <div class="proj-diagram">
+          Bookmaker APIs (40+)<br>
+          &nbsp;&nbsp;&nbsp;↓ raw odds ingestion<br>
+          Normalisation Layer<br>
+          &nbsp;&nbsp;&nbsp;↓ format + deduplicate<br>
+          EV / Arb Calculator<br>
+          &nbsp;&nbsp;&nbsp;↓ ranked output<br>
+          Dashboard Interface<br>
+          &nbsp;&nbsp;&nbsp;→ basketball · football
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 2 -->
+    <div class="project-card fade-in">
+      <p class="proj-tag">Fintech · Mobile-First</p>
+      <h3 class="proj-title">Chai Deni — Tea Farmer Debt Tracker</h3>
+      <p class="proj-desc">
+        A mobile-first debt and transaction tracking app built for tea farmers in Kenya's smallholder sector. Designed around the reality of low-connectivity rural use — farmers can log advances, repayments, and balances offline, with sync when connection is available. Includes M-Pesa transaction reference support and farmer profile management.
+      </p>
+      <div class="proj-stack">
+        <span class="tag">Flask</span>
+        <span class="tag">SQLite</span>
+        <span class="tag">Offline-first</span>
+        <span class="tag">M-Pesa</span>
+        <span class="tag">PWA</span>
+      </div>
+      <p class="proj-meta">— Built for rural Kenyan agricultural context</p>
+    </div>
+
+    <!-- PROJECT 3 -->
+    <div class="project-card fade-in">
+      <p class="proj-tag">Infrastructure · Education</p>
+      <h3 class="proj-title">Offline LMS + Exam System</h3>
+      <p class="proj-desc">
+        Designed and deployed a complete learning management system and exam platform for a computer training centre in Nairobi — served entirely over a phone hotspot with no internet dependency. Built on Termux, the system supports student registration, course content delivery, timed exams, and result tracking. Eliminated the need for paid LMS subscriptions while improving assessment integrity.
+      </p>
+      <div class="proj-stack">
+        <span class="tag">Termux</span>
+        <span class="tag">Python/Flask</span>
+        <span class="tag">SQLite</span>
+        <span class="tag">Hotspot networking</span>
+        <span class="tag">HTML/JS</span>
+      </div>
+      <p class="proj-meta">— Deployed at St. Francis Mercy Community Centre, Nairobi</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header fade-in">
+    <span class="section-num">02</span>
+    <h2 class="section-title">About</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text fade-in">
+      <p>
+        I graduated with a <strong>BSc in Information Technology</strong> from the Technical University of Mombasa in 2025, with my strongest academic performance in databases, data structures, and systems design — the areas I've since turned into my professional focus.
+      </p>
+      <p>
+        Since graduating, I've been building in parallel: deploying real infrastructure for a community education centre in Nairobi, building data pipelines for sports analytics, and publishing technical writing on data engineering through my publication <strong>Cold Informatica</strong>. I don't separate learning from building — every project is a production deployment.
+      </p>
+      <p>
+        My long-term direction is <strong>data engineering and data infrastructure</strong> — specifically the pipeline layer: ingestion, transformation, storage, and the systems that make data queryable at scale. I'm drawn to problems where the data itself is the constraint, not just the downstream model or dashboard.
+      </p>
+      <p>
+        Outside engineering, I run <strong>Coldd Analytics</strong>, a football analytics brand producing stat cards and match intelligence content on Instagram. It keeps my data instincts sharp and my design eye honest.
+      </p>
+    </div>
+    <div class="skills-col fade-in">
+      <div class="skills-group">
+        <h3>Engineering</h3>
+        <ul class="skill-list">
+          <li>Python · Flask · REST APIs</li>
+          <li>SQL · PostgreSQL · SQLite</li>
+          <li>Data pipelines &amp; ETL</li>
+          <li>Linux / Bash / Termux</li>
+          <li>HTML · CSS · JavaScript</li>
+          <li>React (component design)</li>
+        </ul>
+      </div>
+      <div class="skills-group">
+        <h3>Concepts</h3>
+        <ul class="skill-list">
+          <li>Database design &amp; modelling</li>
+          <li>API integration &amp; normalisation</li>
+          <li>Offline-first architecture</li>
+          <li>Probability &amp; EV modelling</li>
+          <li>Network / hotspot deployment</li>
+        </ul>
+      </div>
+      <div class="skills-group">
+        <h3>Other</h3>
+        <ul class="skill-list">
+          <li>Technical writing (Cold Informatica)</li>
+          <li>Football analytics &amp; data viz</li>
+          <li>Teaching foundational IT</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header fade-in">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="exp-item fade-in">
+    <div class="exp-date">2025 — Present</div>
+    <div>
+      <p class="exp-role">Computer Packages Instructor</p>
+      <p class="exp-org">ST. FRANCIS MERCY COMMUNITY CENTRE · NAIROBI</p>
+      <div class="exp-body">
+        <ul>
+          <li>Teach foundational IT and computer literacy to adult learners — MS Office, internet skills, basic programming concepts.</li>
+          <li>Designed and deployed an offline LMS over a local hotspot network using Termux and Flask — eliminating the centre's dependence on external internet for course delivery.</li>
+          <li>Built a classroom exam system with student registration, timed assessments, and automated result reporting served over a phone hotspot to 20+ simultaneous users.</li>
+          <li>Produced a full curriculum of branded educational PDF series for student reference across hardware, software, email, and version control modules.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="exp-item fade-in">
+    <div class="exp-date">2024 — Present</div>
+    <div>
+      <p class="exp-role">Founder &amp; Data Engineer</p>
+      <p class="exp-org">EDGESCANNER ANALYTICS · INDEPENDENT</p>
+      <div class="exp-body">
+        <ul>
+          <li>Architected and built EdgeScanner Live from scratch — a sports odds aggregation platform integrating 40+ bookmakers via API and scraping pipelines.</li>
+          <li>Designed the Pre-Match Tactical Modelling and Probability Engine (PTMPE): a formal technical system for EV calculation, market probability normalisation, and bet ranking.</li>
+          <li>Sole engineer across ingestion, transformation, storage, and frontend dashboard layers.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="exp-item fade-in">
+    <div class="exp-date">2024 — Present</div>
+    <div>
+      <p class="exp-role">Editor &amp; Technical Author</p>
+      <p class="exp-org">COLD INFORMATICA / NECKHARDS.ORG · INDEPENDENT</p>
+      <div class="exp-body">
+        <ul>
+          <li>Founded and run a technical data engineering publication covering database internals, pipeline design, and the evolving role of data infrastructure in AI-era systems.</li>
+          <li>Published original intellectual work including a compression theory paper (FCTE) and a thesis on redesigning the database retrieval layer for AI-agent-native consumption.</li>
+          <li>Produced longform editorial content on SQL, PostgreSQL, binary-to-database history, and data engineering career development.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="exp-item fade-in">
+    <div class="exp-date">2021 — 2025</div>
+    <div>
+      <p class="exp-role">BSc Information Technology</p>
+      <p class="exp-org">TECHNICAL UNIVERSITY OF MOMBASA</p>
+      <div class="exp-body">
+        <p>Four-year degree with strongest performance in databases, data structures, algorithms, and systems design. Coursework grounded in both applied programming and theoretical computing fundamentals.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header fade-in" style="justify-content: center;">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Contact</h2>
+  </div>
+  <p class="contact-sub">
+    Open to data engineering roles, pipeline projects, and infrastructure work. Based in Nairobi — open to remote.
+  </p>
+  <a href="mailto:kiruirop15@gmail.com" class="contact-email">kiruirop15@gmail.com</a>
+  <div class="contact-links">
+    <a href="https://neckhards.org">neckhards.org</a>
+    <a href="https://instagram.com/colddanalytica">@colddanalytica</a>
+    <a href="mailto:kiruirop15@gmail.com">email</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>Denis Kirui · Nairobi, Kenya</span>
+  <span>BSc IT — Technical University of Mombasa, 2025</span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

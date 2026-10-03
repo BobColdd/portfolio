@@ -1,186 +1,978 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DENIS KIPROP KIRUI — Software Developer & IT Professional</title>
-<style>
-  :root{
-    --bg:#ffffff;
-    --text:#1a1a1a;
-    --muted:#5c5c5c;
-    --line:#e2e2e2;
-    --link:#1a56db;
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
-    line-height:1.6;
-    font-size:16px;
-  }
-  a{color:var(--link);text-decoration:none;}
-  a:hover{text-decoration:underline;}
-  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  header{border-bottom:1px solid var(--line);padding:20px 0;}
-  nav.wrap{display:flex;align-items:center;justify-content:space-between;}
-  .logo{font-weight:700;font-size:16px;}
-  .navlinks{display:flex;gap:22px;font-size:14px;}
+    <title>Denis Kiprop Kirui — Software Developer & IT Professional</title>
 
-  section{padding:48px 0;border-bottom:1px solid var(--line);}
-  section:last-of-type{border-bottom:none;}
-  h1{font-size:32px;font-weight:700;margin-bottom:8px;}
-  .role{font-size:16px;color:var(--muted);margin-bottom:16px;}
-  .lede{font-size:16px;color:var(--text);max-width:620px;}
+    <meta name="description"
+          content="Denis Kiprop Kirui — Python Developer, Software Developer and Computer Science & AI Trainer. BSc Information Technology graduate from Technical University of Mombasa.">
 
-  h2{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted);margin-bottom:20px;}
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-  .project{margin-bottom:28px;}
-  .project:last-child{margin-bottom:0;}
-  .project h3{font-size:17px;font-weight:600;margin-bottom:4px;}
-  .project .meta{font-size:13px;color:var(--muted);margin-bottom:8px;}
-  .project p{font-size:14.5px;color:var(--text);margin-bottom:6px;max-width:600px;}
-  .project .link{font-size:14px;}
-  .project-shot{margin-top:12px;}
-  .project-shot img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:4px;display:block;}
-  .project-shot .caption{font-size:13px;color:var(--muted);margin-top:6px;max-width:600px;}
+        html {
+            scroll-behavior: smooth;
+        }
 
-  .about p{margin-bottom:14px;max-width:640px;font-size:15px;}
+        body {
+            margin: 0;
+            background: #ffffff;
+            color: #222222;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.65;
+        }
 
-  h3.subhead{font-size:14px;font-weight:700;margin-bottom:8px;margin-top:20px;}
-  .skills-list{font-size:14.5px;color:var(--text);margin-bottom:4px;}
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-  .exp-item{margin-bottom:24px;}
-  .exp-item:last-child{margin-bottom:0;}
-  .exp-role{font-size:15.5px;font-weight:600;}
-  .exp-org{font-size:13.5px;color:var(--muted);margin-bottom:8px;}
-  .exp-item ul{padding-left:18px;font-size:14.5px;}
-  .exp-item li{margin-bottom:4px;}
+        .container {
+            width: min(900px, calc(100% - 40px));
+            margin: 0 auto;
+        }
 
-  .contact-links{font-size:15px;}
-  .contact-links div{margin-bottom:6px;}
+        /* Header */
 
-  footer{padding:24px 0;text-align:center;font-size:13px;color:var(--muted);}
-</style>
+        header {
+            border-bottom: 1px solid #e6e6e6;
+            padding: 24px 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .brand {
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        nav a:hover {
+            color: #111;
+        }
+
+        /* Hero */
+
+        .hero {
+            padding: 75px 0 65px;
+            border-bottom: 1px solid #e6e6e6;
+        }
+
+        .hero h1 {
+            margin: 0 0 8px;
+            font-size: clamp(38px, 7vw, 58px);
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+            font-weight: 700;
+        }
+
+        .hero .role {
+            margin: 0 0 25px;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: 0;
+            font-size: 17px;
+            color: #444;
+        }
+
+        .hero-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .hero-links a {
+            border: 1px solid #d8d8d8;
+            padding: 8px 14px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .hero-links a:hover {
+            background: #f7f7f7;
+        }
+
+        /* Sections */
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #e6e6e6;
+        }
+
+        .section-title {
+            margin: 0 0 30px;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #777;
+            font-weight: 700;
+        }
+
+        h2 {
+            margin: 0 0 12px;
+            font-size: 25px;
+            line-height: 1.25;
+        }
+
+        h3 {
+            margin: 0 0 5px;
+            font-size: 19px;
+        }
+
+        p {
+            margin: 0 0 14px;
+        }
+
+        /* Projects */
+
+        .project {
+            padding: 0 0 38px;
+            margin-bottom: 38px;
+            border-bottom: 1px solid #ededed;
+        }
+
+        .project:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .project-meta {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .project-description {
+            color: #444;
+            max-width: 780px;
+        }
+
+        .project ul {
+            margin: 15px 0 18px;
+            padding-left: 20px;
+            color: #444;
+        }
+
+        .project li {
+            margin-bottom: 7px;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 5px;
+            font-size: 14px;
+            color: #333;
+            border-bottom: 1px solid #999;
+        }
+
+        .project-link:hover {
+            border-color: #111;
+        }
+
+        /* About */
+
+        .about-text {
+            max-width: 780px;
+            color: #444;
+        }
+
+        /* Skills */
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px 50px;
+        }
+
+        .skill-group h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .skill-group p {
+            color: #555;
+            font-size: 15px;
+        }
+
+        /* Experience */
+
+        .experience-item {
+            margin-bottom: 42px;
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .experience-header {
+            margin-bottom: 12px;
+        }
+
+        .experience-role {
+            font-size: 19px;
+            font-weight: 600;
+        }
+
+        .experience-company {
+            color: #555;
+        }
+
+        .experience-date {
+            color: #888;
+            font-size: 14px;
+            margin-top: 3px;
+        }
+
+        .experience-item ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #444;
+        }
+
+        .experience-item li {
+            margin-bottom: 6px;
+        }
+
+        /* Education */
+
+        .education-item {
+            margin-bottom: 30px;
+        }
+
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .education-title {
+            font-size: 19px;
+            font-weight: 600;
+        }
+
+        .education-school {
+            color: #555;
+        }
+
+        .education-date {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* Contact */
+
+        .contact-list {
+            display: grid;
+            gap: 12px;
+            max-width: 600px;
+        }
+
+        .contact-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #ededed;
+        }
+
+        .contact-label {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .contact-value {
+            text-align: right;
+        }
+
+        .contact-value a {
+            border-bottom: 1px solid #aaa;
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 30px 0 45px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 650px) {
+
+            .container {
+                width: min(100% - 28px, 900px);
+            }
+
+            header {
+                padding: 18px 0;
+            }
+
+            .nav {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            .hero {
+                padding: 55px 0 50px;
+            }
+
+            section {
+                padding: 48px 0;
+            }
+
+            .skills {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                gap: 3px;
+            }
+
+            .contact-value {
+                text-align: left;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
 <header>
-  <nav class="wrap">
-    <div class="logo">DENIS KIPROP KIRUI</div>
-    <div class="navlinks">
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
+    <div class="container nav">
+
+        <a href="#top" class="brand">
+            DENIS KIPROP KIRUI
+        </a>
+
+        <nav>
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
     </div>
-  </nav>
 </header>
 
-<section>
-  <div class="wrap">
-    <h1>Denis Kirui</h1>
-    <div class="role">Software Developer &amp; IT Professional — Nairobi, Kenya</div>
-    <p class="lede">BSc Information Technology graduate with hands-on experience building software applications, managing databases, and delivering IT support to clients. I translate real business problems — from farm record-keeping to billing management — into working software.</p>
-  </div>
-</section>
 
-<section id="projects">
-  <div class="wrap">
-    <h2>Projects</h2>
+<main id="top">
 
-    <div class="project">
-      <h3>Our Lady Mercy Computer Studies Quiz</h3>
-      <div class="meta">Flask · Render · PostgreSQL</div>
-      <p>A student assessment platform for Our Lady Mercy Community Center — a 30-question computer studies quiz with multiple-choice and short-answer sections, and per-student login. Students did not have to register; they had student-assigned IDs. To navigate further, use demo logins — Full name: <em>demo test</em>, User ID: <em>Demo user</em>.</p>
-      <a class="link" href="https://our-lady-mercy.onrender.com" target="_blank" rel="noopener">our-lady-mercy.onrender.com</a>
-    </div>
+    <!-- HERO -->
 
-    <div class="project">
-      <h3>Notes Directory</h3>
-      <div class="meta">JavaScript</div>
-      <p>A modern library where I share my perspective on different computer-related concepts.</p>
-      <a class="link" href="https://ca-v2a2.onrender.com" target="_blank" rel="noopener">ca-v2a2.onrender.com</a>
-    </div>
+    <section class="hero">
+        <div class="container">
 
-    <div class="project">
-      <h3>CHAI YAKO</h3>
-      <div class="meta">Flask · Render · PostgreSQL</div>
-      <p>A record-keeping app tracking plucking, weeding, pruning, fertilizer, and spraying activities across multiple farms, with private multi-user accounts.</p>
-      <a class="link" href="https://chai-yako.onrender.com" target="_blank" rel="noopener">chai-yako.onrender.com</a>
-      <div class="project-shot">
-        
-        <div class="caption">Below are illustrations of what the app can do — a screenshot of data one of the application's users allowed me to share.</div>
-<img src="image1.png" alt="sample farm data analysis">
+            <h1>Denis Kirui</h1>
+
+            <p class="role">
+                Python Developer · Software Developer · Computer Science & AI Trainer
+            </p>
+
+            <p>
+                BSc Information Technology graduate with hands-on experience in
+                Python software development, web application development,
+                PostgreSQL/SQL databases, systems analysis, debugging,
+                technical support, and cloud deployment.
+            </p>
+
+            <div class="hero-links">
+                <a href="mailto:Kiruirop15@gmail.com">Email</a>
+                <a href="tel:+254712600195">+254 712 600 195</a>
+                <a href="https://github.com/" target="_blank" rel="noopener">
+                    GitHub
+                </a>
+            </div>
+
+        </div>
+    </section>
 
 
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- PROJECTS -->
 
-<section id="about" class="about">
-  <div class="wrap">
-    <h2>About</h2>
-    <p>BSc Information Technology graduate with hands-on experience building software applications, managing databases, and delivering IT support to clients. Skilled in translating real-world business problems — from farm record-keeping to billing management — into working systems. Complemented by a creative interest in poetry and literary work, bringing strong analytical thinking and communication skills to every project. Seeking to contribute as an IT professional or software developer on a forward-thinking team.</p>
+    <section id="projects">
+        <div class="container">
 
-    <h3 class="subhead">Technical skills</h3>
-    <p class="skills-list">Windows, Linux, macOS · TCP/IP, DNS, VPNs, router configuration · Troubleshooting and PC assembly, Active Directory, help desk ticketing · AWS, Microsoft Azure, VMware · SQL, MySQL, database administration · Python, Bash, PowerShell · Firewalls, antivirus deployment, patch management · Git</p>
+            <p class="section-title">Projects</p>
 
-    <h3 class="subhead">Soft skills</h3>
-    <p class="skills-list">Problem-solving and critical thinking for technical diagnosis · Communication — explaining technical terms to non-technical users · Time management — prioritising multiple support tickets · Team collaboration with network and system administrators · Adaptability — fast learning of new software and infrastructure</p>
-  </div>
-</section>
 
-<section id="experience">
-  <div class="wrap">
-    <h2>Experience</h2>
+            <!-- CHAI YAKO FARMER -->
 
-    <div class="exp-item">
-      <div class="exp-role">ICT Intern — Keenheart Trading Enterprise Ltd</div>
-      <div class="exp-org">May – To Date</div>
-      <ul>
-        <li>Resolved staff hardware and software issues to minimise downtime</li>
-        <li>Set up, configured, and deployed office workstations and printers</li>
-        <li>Assisted with routine server monitoring and data backup procedures</li>
-        <li>Managed software installations and ran system vulnerability scans</li>
-        <li>Maintained an accurate inventory of all company technology assets</li>
-      </ul>
-    </div>
+            <article class="project">
 
-    <div class="exp-item">
-      <div class="exp-role">Computer Instructor — Mercy Community Centre</div>
-      <div class="exp-org">January – April 2026</div>
-      <ul>
-        <li>Taught core computer packages, ensuring student mastery of essential digital skills</li>
-        <li>Guided learners through hands-on exercises in word processing, spreadsheets, and presentations</li>
-        <li>Evaluated student progress through practical assignments and provided personalised feedback</li>
-        <li>Maintained an organised, productive, and supportive learning environment</li>
-      </ul>
-    </div>
+                <h2>Chai Yako — Farmer Application</h2>
 
-    <div class="exp-item">
-      <div class="exp-role">BSc Information Technology — Technical University of Mombasa</div>
-      <div class="exp-org">2021 – 2025 · Second Class Honours, Lower Division</div>
-    </div>
-  </div>
-</section>
+                <p class="project-meta">
+                    Python · Flask · PostgreSQL · REST APIs · Cloud Deployment
+                </p>
 
-<section id="contact">
-  <div class="wrap">
-    <h2>Contact</h2>
-    <div class="contact-links">
-      <div><a href="mailto:Kiruirop15@gmail.com">Kiruirop15@gmail.com</a></div>
-      <div><a href="tel:+254712600195">+254 712 600 195</a></div>
-    </div>
-  </div>
-</section>
+                <p class="project-description">
+                    A web application designed to give tea farmers a digital
+                    interface for recording and viewing farm activities and
+                    production information.
+                </p>
+
+                <ul>
+                    <li>
+                        Records tea production and farm activities including
+                        tea plucking, pruning, weeding, fertilizer and spraying.
+                    </li>
+
+                    <li>
+                        Provides farmers with a private account through which
+                        they can access their farm information.
+                    </li>
+
+                    <li>
+                        Uses a PostgreSQL database to store structured farmer,
+                        farm and activity information.
+                    </li>
+
+                    <li>
+                        Developed as a practical replacement for parts of
+                        traditional paper-based farm record keeping.
+                    </li>
+                </ul>
+
+                <a
+                    class="project-link"
+                    href="https://chaiyako.site/"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Visit chaiyako.site →
+                </a>
+
+            </article>
+
+
+            <!-- CHAI YAKO MANAGEMENT -->
+
+            <article class="project">
+
+                <h2>Chai Yako — Factory Management System</h2>
+
+                <p class="project-meta">
+                    Python · Flask · PostgreSQL · RBAC · Audit Trails · Cloud Deployment
+                </p>
+
+                <p class="project-description">
+                    A separate factory-side management application supporting
+                    operational workflows between tea factories, employees,
+                    buying centres and farmers.
+                </p>
+
+                <ul>
+                    <li>
+                        Supports farmer registration and farm-verification
+                        workflows.
+                    </li>
+
+                    <li>
+                        Handles tea buying transactions, weighing information
+                        and receipt generation.
+                    </li>
+
+                    <li>
+                        Implements employee roles, departments and
+                        role-based access control.
+                    </li>
+
+                    <li>
+                        Maintains transactional records and audit information
+                        for operational accountability.
+                    </li>
+
+                    <li>
+                        Designed around real factory workflows rather than
+                        treating the application as a simple CRUD system.
+                    </li>
+                </ul>
+
+                <a
+                    class="project-link"
+                    href="https://management.chaiyako.site/"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Visit management.chaiyako.site →
+                </a>
+
+            </article>
+
+
+            <!-- IELTS -->
+
+            <article class="project">
+
+                <h2>IELTS Training Platform</h2>
+
+                <p class="project-meta">
+                    Python · Flask · PostgreSQL · Authentication · Data Modelling
+                </p>
+
+                <p class="project-description">
+                    A database-driven IELTS training platform designed to
+                    organise training content, student submissions and
+                    assessment workflows across the four IELTS skills.
+                </p>
+
+                <ul>
+                    <li>
+                        Supports Reading, Listening, Writing and Speaking
+                        content structures.
+                    </li>
+
+                    <li>
+                        Includes user authentication and role management for
+                        students and administrators.
+                    </li>
+
+                    <li>
+                        Uses PostgreSQL for structured storage of users,
+                        tasks, submissions and assessment data.
+                    </li>
+
+                    <li>
+                        Designed to support organised content delivery,
+                        student submissions and future assessment features.
+                    </li>
+                </ul>
+
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+        <div class="container">
+
+            <p class="section-title">About</p>
+
+            <div class="about-text">
+
+                <p>
+                    I am a BSc Information Technology graduate with practical
+                    experience developing software applications, working with
+                    relational databases, troubleshooting technical systems,
+                    and supporting users.
+                </p>
+
+                <p>
+                    My development work focuses primarily on Python, Flask,
+                    PostgreSQL and database-driven web applications. I enjoy
+                    taking real operational problems, breaking them into
+                    workflows and data structures, and turning them into
+                    working software.
+                </p>
+
+                <p>
+                    I also have experience teaching computer applications and
+                    evaluating practical student work. This has strengthened
+                    my ability to analyse solutions, identify errors, explain
+                    technical concepts clearly and provide structured feedback.
+                </p>
+
+                <p>
+                    I am particularly interested in software development,
+                    technical problem solving, computer science, AI training
+                    and code evaluation.
+                </p>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- TECHNICAL SKILLS -->
+
+    <section id="skills">
+        <div class="container">
+
+            <p class="section-title">Technical Skills</p>
+
+            <div class="skills">
+
+                <div class="skill-group">
+                    <h3>Programming & Development</h3>
+                    <p>
+                        Python · Flask · JavaScript · Bash · PowerShell ·
+                        REST APIs · JSON · Web Application Development ·
+                        Git · GitHub
+                    </p>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Databases & Data</h3>
+                    <p>
+                        PostgreSQL · MySQL · SQL · SQLite · Relational
+                        Database Design · Data Modelling · SQL Queries ·
+                        Database Administration · Data Validation
+                    </p>
+                </div>
+
+                <div class="skill-group">
+                    <h3>AI Training & Evaluation</h3>
+                    <p>
+                        Analytical Reasoning · Code Reading · Debugging ·
+                        Requirements Evaluation · Edge-Case Identification ·
+                        Structured Assessment · Technical Writing ·
+                        Technical Documentation
+                    </p>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Systems & Infrastructure</h3>
+                    <p>
+                        Linux · Windows · TCP/IP · DNS · VPN · Router
+                        Configuration · AWS · Microsoft Azure · VMware ·
+                        Firewalls · Patch Management · Hardware Troubleshooting
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- EXPERIENCE -->
+
+    <section id="experience">
+        <div class="container">
+
+            <p class="section-title">Experience</p>
+
+
+            <article class="experience-item">
+
+                <div class="experience-header">
+
+                    <div class="experience-role">
+                        ICT / Software Development & Technical Support
+                    </div>
+
+                    <div class="experience-company">
+                        Keenheart Trading Enterprises Ltd
+                    </div>
+
+                    <div class="experience-date">
+                        May 2026 – Present
+                    </div>
+
+                </div>
+
+                <ul>
+                    <li>
+                        Develop and support software solutions for business
+                        operations.
+                    </li>
+
+                    <li>
+                        Analyse business requirements and translate them into
+                        practical software workflows.
+                    </li>
+
+                    <li>
+                        Work with databases and application logic.
+                    </li>
+
+                    <li>
+                        Troubleshoot software, hardware, networking and
+                        system problems.
+                    </li>
+
+                    <li>
+                        Deploy and configure workstations, printers and
+                        other IT equipment.
+                    </li>
+
+                    <li>
+                        Assist with network and server-related operations,
+                        backups and system monitoring.
+                    </li>
+
+                    <li>
+                        Maintain technology asset records and support
+                        software and security updates.
+                    </li>
+                </ul>
+
+            </article>
+
+
+            <article class="experience-item">
+
+                <div class="experience-header">
+
+                    <div class="experience-role">
+                        Computer Instructor
+                    </div>
+
+                    <div class="experience-company">
+                        Mercy Community Center
+                    </div>
+
+                    <div class="experience-date">
+                        January 2026 – April 2026
+                    </div>
+
+                </div>
+
+                <ul>
+                    <li>
+                        Taught computer applications and digital skills
+                        through practical exercises.
+                    </li>
+
+                    <li>
+                        Prepared and delivered technical learning materials.
+                    </li>
+
+                    <li>
+                        Assessed students through practical assignments.
+                    </li>
+
+                    <li>
+                        Evaluated student work and provided individual
+                        feedback.
+                    </li>
+
+                    <li>
+                        Explained technical concepts to learners with
+                        different levels of experience.
+                    </li>
+                </ul>
+
+            </article>
+
+
+            <article class="experience-item">
+
+                <div class="experience-header">
+
+                    <div class="experience-role">
+                        ICT Industrial Attachment
+                    </div>
+
+                    <div class="experience-company">
+                        Chai Trading Company Limited
+                    </div>
+
+                    <div class="experience-date">
+                        May 2024 – August 2024
+                    </div>
+
+                </div>
+
+                <ul>
+                    <li>
+                        Performed basic SQL queries and database-related
+                        tasks.
+                    </li>
+
+                    <li>
+                        Configured computer networks and supported ICT
+                        infrastructure.
+                    </li>
+
+                    <li>
+                        Installed and configured VoIP systems.
+                    </li>
+
+                    <li>
+                        Installed and configured CCTV and biometric systems.
+                    </li>
+
+                    <li>
+                        Performed computer maintenance and troubleshooting.
+                    </li>
+
+                    <li>
+                        Assisted with firewall installation and maintenance.
+                    </li>
+                </ul>
+
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- EDUCATION -->
+
+    <section id="education">
+        <div class="container">
+
+            <p class="section-title">Education & Certification</p>
+
+
+            <article class="education-item">
+
+                <div class="education-title">
+                    Bachelor of Science in Information Technology
+                </div>
+
+                <div class="education-school">
+                    Technical University of Mombasa
+                </div>
+
+                <div class="education-date">
+                    2021 – 2025 · Second Class Honours, Lower Division
+                </div>
+
+                <p>
+                    Foundation in programming, databases, networking,
+                    systems analysis, information systems, computer systems
+                    and software development.
+                </p>
+
+            </article>
+
+
+            <article class="education-item">
+
+                <div class="education-title">
+                    Kenya Certificate of Secondary Education
+                </div>
+
+                <div class="education-school">
+                    Kaplong Boys High School
+                </div>
+
+                <div class="education-date">
+                    Grade B- · 59 points
+                </div>
+
+            </article>
+
+
+            <article class="education-item">
+
+                <div class="education-title">
+                    IELTS Academic
+                </div>
+
+                <div class="education-school">
+                    Overall Band Score: 7.0
+                </div>
+
+                <p>
+                    Demonstrates strong English-language proficiency for
+                    technical communication, documentation and training.
+                </p>
+
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+        <div class="container">
+
+            <p class="section-title">Contact</p>
+
+            <div class="contact-list">
+
+                <div class="contact-item">
+                    <span class="contact-label">Email</span>
+                    <span class="contact-value">
+                        <a href="mailto:Kiruirop15@gmail.com">
+                            Kiruirop15@gmail.com
+                        </a>
+                    </span>
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-label">Phone</span>
+                    <span class="contact-value">
+                        <a href="tel:+254712600195">
+                            +254 712 600 195
+                        </a>
+                    </span>
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-label">Portfolio</span>
+                    <span class="contact-value">
+                        <a
+                            href="https://denis.neckhards.org"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            denis.neckhards.org
+                        </a>
+                    </span>
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-label">Location</span>
+                    <span class="contact-value">
+                        Kenya
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
 
 <footer>
-  Denis Kiprop Kirui · Nairobi, Kenya
+    <div class="container footer-inner">
+        <span>Denis Kiprop Kirui</span>
+        <span>Software Developer & IT Professional</span>
+    </div>
 </footer>
 
 </body>
 </html>
+```
